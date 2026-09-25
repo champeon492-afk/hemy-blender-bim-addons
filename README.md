@@ -2,19 +2,29 @@
 
 Source and installable packages for the **11 custom add-ons** in the [BIM UX feature map](docs/BIM_UX_FEATURES.md). The twelfth add-on in that setup, official **Bonsai 0.8.5**, is an external dependency. The documented environment is Blender **5.2.1 LTS**.
 
-| Add-on | Version | What it provides |
+## What each add-on does
+
+| Add-on | Version | How you use it |
 | --- | --- | --- |
-| `hemy_ifc_panel` | 0.4.2 | IFC properties, class visibility, photo-based layered wall type |
-| `bonsai_ux_host` | 0.2.0 | BIM sidebar, task switcher, viewport header, links to companion tools |
-| `bonsai_storey_toolbar` | 1.2.0 | Storey selection, plan and 3D controls, view range |
-| `workplane_toolkit` | 1.0.0 | Workplane selection and restoration |
-| `bonsai_grid_toolbar` | 1.1.0 | IFC grid creation and axis controls |
-| `bonsai_plan_dimensions` | 0.1.1 | Plan measurements and driving dimensions for IFC walls and grids |
-| `bonsai_dynamic_dimension` | 0.3.2 | Reference and editable aligned dimensions |
-| `bonsai_section_box` | 1.1.0 | Section box around selected model elements |
-| `bonsai_slab_thickness` | 1.3.0 | Typed slab, wall, and column sizes |
-| `bonsai_nucleus_files` | 1.0.0 | Native Nucleus browser for IFC and Blender projects |
-| `bonsai_nucleus_sync` | 0.1.0 | Live sync to a Nucleus session |
+| `hemy_ifc_panel` | 0.4.2 | Inspect an element's IFC properties, filter model visibility by IFC class, or use **BIM → Active Tool → Create Wall from Photo** to build a layered wall type. See the [photo-wall guide](docs/Hemy_IFC_User_Guide.md). |
+| `bonsai_ux_host` | 0.2.0 | Open the **BIM** tab in the 3D View sidebar. Choose a task, then use **Context**, **Active Tool**, **Selection**, **View**, or **Collaboration**. It also places storey, workplane, Plan/3D, and Nucleus status controls in the viewport header. |
+| `bonsai_storey_toolbar` | 1.2.0 | Choose an IFC storey, switch between locked **Plan** and navigable **3D**, and set a vertical **View Range**. The selected storey becomes Bonsai's default spatial container. |
+| `workplane_toolkit` | 1.0.0 | Set a modeling plane from a selected face, the cursor, the current view, or an XY/XZ/YZ world plane. Use its grid and transform orientation while modeling, then restore the previous setup. |
+| `bonsai_grid_toolbar` | 1.1.0 | Open **IFC Grid** in the left toolbar or sidebar. Create a row/column grid, draw or offset axes, rename labels, and stretch a straight axis by dragging an endpoint handle. |
+| `bonsai_plan_dimensions` | 0.1.1 | In **Plan Dimensions**, select a storey and two parallel walls or grid axes. Add a dimension, then edit its value to move the chosen wall or grid axis in the IFC model. It can also chain selected grid axes. |
+| `bonsai_dynamic_dimension` | 0.3.2 | In top plan, pick two parallel IFC wall faces or two IFC points and place an aligned reference dimension. **Edit Value** can move the linked IFC element when you choose to make a driving edit. |
+| `bonsai_section_box` | 1.1.0 | Select model elements and choose **BIM → View → Fit Section Box to Selection** to focus on a 3D region. Use **Reset Section Box** to restore the view. |
+| `bonsai_slab_thickness` | 1.3.0 | With a typed wall, slab, or column selected, use **BIM → Selection** or the corresponding Bonsai tool to set type-specific wall/slab thickness or rectangular/circular column profile size. Existing occurrences of that type are regenerated. |
+| `bonsai_nucleus_files` | 1.0.0 | Open **BIM → Collaboration** or **File → BIM Projects on Nucleus** to browse projects. Use the native browser's distinct **Open**, **Save**, and **Save As** actions for IFC/IFCZIP or Blender files. |
+| `bonsai_nucleus_sync` | 0.1.0 | Configure a Nucleus USD stage and receiver token, then start, stop, or resync a live session from **BIM → Collaboration** or the **Bonsai Sync** sidebar. |
+
+### Illustrated interface
+
+![Conceptual Blender viewport showing the BIM header, plan view, BIM sidebar sections, and the companion add-ons behind each control](docs/bim-ux-interface.svg)
+
+*Illustration of the control layout; it is not a screenshot of a project. The BIM tab collects shortcuts while the companion add-ons perform the actions.*
+
+For a typical plan task: **open an IFC in Bonsai → select a storey → choose Plan → create or edit a grid → place a dimension → save the IFC through Bonsai**. A `.blend` save alone does not save IFC edits. For review, select elements and use **View → Fit Section Box to Selection**; use **Collaboration** only after configuring your own Nucleus service.
 
 The source directories hold the custom add-ons captured with the handover. Machine-specific Nucleus server defaults and SDK paths were removed from this repository copy. The two Blender extensions, `bonsai_plan_dimensions` and `workplane_toolkit`, have `blender_manifest.toml` files and their ZIPs use the extension layout. The other nine ZIPs use the legacy add-on folder layout. Keep each add-on's own license files with its source and ZIP.
 

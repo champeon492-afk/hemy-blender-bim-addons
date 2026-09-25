@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title description">
+  <title id="title">Illustrated Blender BIM workflow</title>
+  <desc id="description">A conceptual Blender plan viewport with a BIM header, IFC grid and dimension, and a sidebar containing Context, Active Tool, Selection, View, and Collaboration sections.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e3eaf2" stroke-width="1"/></pattern>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M 0 0 L 7 3.5 L 0 7 z" fill="#2d75d6"/></marker>
+    <clipPath id="viewport"><rect x="48" y="145" width="724" height="430" rx="8"/></clipPath>
+  </defs>
+  <rect width="1200" height="680" fill="#f5f8fc"/>
+  <text x="40" y="36" fill="#1d314d" font-family="Arial, sans-serif" font-size="25" font-weight="700">HEMY BIM tools in the Blender viewport</text>
+  <text x="40" y="61" fill="#52657c" font-family="Arial, sans-serif" font-size="15">Example: choose a storey, work in plan, edit IFC elements, then save the IFC.</text>
+  <rect x="38" y="83" width="1124" height="528" rx="13" fill="#ffffff" stroke="#cbd7e5" stroke-width="2"/>
+  <path d="M 51 83 H 1149 Q 1162 83 1162 96 V 132 H 38 V 96 Q 38 83 51 83" fill="#23344f"/>
+  <text x="58" y="114" fill="#ffffff" font-family="Arial, sans-serif" font-size="17" font-weight="700">Blender + Bonsai</text>
+  <rect x="268" y="92" width="148" height="29" rx="7" fill="#3c5475"/><text x="279" y="112" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">Storey: Level 1 ▾</text>
+  <rect x="426" y="92" width="158" height="29" rx="7" fill="#3c5475"/><text x="437" y="112" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">Workplane: Level 1</text>
+  <rect x="594" y="92" width="67" height="29" rx="7" fill="#4a92e6"/><text x="611" y="112" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="700">Plan</text>
+  <rect x="668" y="92" width="54" height="29" rx="7" fill="#3c5475"/><text x="685" y="112" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">3D</text>
+  <rect x="819" y="92" width="181" height="29" rx="7" fill="#3c5475"/><text x="832" y="112" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">Nucleus: Offline ▾</text>
+  <rect x="48" y="145" width="724" height="430" rx="8" fill="#f9fbfe" stroke="#d4dfeb"/>
+  <g clip-path="url(#viewport)">
+    <rect x="48" y="145" width="724" height="430" fill="url(#grid)"/>
+    <line x1="238" y1="145" x2="238" y2="575" stroke="#d48349" stroke-width="2" stroke-dasharray="9 7"/>
+    <line x1="532" y1="145" x2="532" y2="575" stroke="#d48349" stroke-width="2" stroke-dasharray="9 7"/>
+    <line x1="48" y1="264" x2="772" y2="264" stroke="#d48349" stroke-width="2" stroke-dasharray="9 7"/>
+    <line x1="48" y1="458" x2="772" y2="458" stroke="#d48349" stroke-width="2" stroke-dasharray="9 7"/>
+    <circle cx="238" cy="264" r="18" fill="#fff2e5" stroke="#d48349"/><text x="232" y="270" fill="#99521f" font-family="Arial, sans-serif" font-size="17" font-weight="700">A</text>
+    <circle cx="532" cy="264" r="18" fill="#fff2e5" stroke="#d48349"/><text x="527" y="270" fill="#99521f" font-family="Arial, sans-serif" font-size="17" font-weight="700">1</text>
+    <rect x="190" y="312" width="390" height="34" rx="3" fill="#8fa7bc" stroke="#48627a" stroke-width="2"/>
+    <rect x="190" y="410" width="390" height="34" rx="3" fill="#8fa7bc" stroke="#48627a" stroke-width="2"/>
+    <rect x="205" y="346" width="30" height="64" fill="#8fa7bc" stroke="#48627a" stroke-width="2"/>
+    <rect x="535" y="346" width="30" height="64" fill="#8fa7bc" stroke="#48627a" stroke-width="2"/>
+    <line x1="628" y1="346" x2="628" y2="410" stroke="#2d75d6" stroke-width="2.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="579" y1="346" x2="643" y2="346" stroke="#2d75d6" stroke-width="2"/>
+    <line x1="579" y1="410" x2="643" y2="410" stroke="#2d75d6" stroke-width="2"/>
+    <rect x="647" y="361" width="85" height="29" rx="6" fill="#e8f2ff" stroke="#a9c8ee"/>
+    <text x="658" y="381" fill="#205aa5" font-family="Arial, sans-serif" font-size="16" font-weight="700">3.2 m</text>
+  </g>
+  <rect x="65" y="160" width="143" height="29" rx="6" fill="#ffffff" stroke="#cbd7e5"/><text x="77" y="180" fill="#31536f" font-family="Arial, sans-serif" font-size="14">IFC plan • Level 1</text>
+  <rect x="64" y="525" width="320" height="34" rx="6" fill="#fff" stroke="#d4dfeb"/><circle cx="83" cy="542" r="6" fill="#d48349"/><text x="96" y="547" fill="#38516b" font-family="Arial, sans-serif" font-size="14">Grid axes</text><circle cx="205" cy="542" r="6" fill="#2d75d6"/><text x="218" y="547" fill="#38516b" font-family="Arial, sans-serif" font-size="14">Editable dimension</text>
+  <rect x="793" y="145" width="349" height="430" rx="8" fill="#f3f7fc" stroke="#d4dfeb"/>
+  <rect x="810" y="158" width="64" height="28" rx="6" fill="#3177c9"/><text x="828" y="178" fill="#fff" font-family="Arial, sans-serif" font-size="15" font-weight="700">BIM</text>
+  <text x="892" y="178" fill="#64778b" font-family="Arial, sans-serif" font-size="14">3D View sidebar</text>
+  <rect x="809" y="197" width="316" height="66" rx="7" fill="#fff" stroke="#d4dfeb"/><text x="823" y="220" fill="#203a57" font-family="Arial, sans-serif" font-size="16" font-weight="700">Context</text><text x="823" y="244" fill="#536a82" font-family="Arial, sans-serif" font-size="14">Select Storey • Set Workplane • Plan / 3D</text>
+  <rect x="809" y="270" width="316" height="66" rx="7" fill="#fff" stroke="#d4dfeb"/><text x="823" y="293" fill="#203a57" font-family="Arial, sans-serif" font-size="16" font-weight="700">Active Tool</text><text x="823" y="317" fill="#536a82" font-family="Arial, sans-serif" font-size="14">Choose BIM Tool: Grid, Dimension, Wall…</text>
+  <rect x="809" y="343" width="316" height="66" rx="7" fill="#fff" stroke="#d4dfeb"/><text x="823" y="366" fill="#203a57" font-family="Arial, sans-serif" font-size="16" font-weight="700">Selection</text><text x="823" y="390" fill="#536a82" font-family="Arial, sans-serif" font-size="14">IFC properties • Wall / Slab / Column size</text>
+  <rect x="809" y="416" width="316" height="66" rx="7" fill="#fff" stroke="#d4dfeb"/><text x="823" y="439" fill="#203a57" font-family="Arial, sans-serif" font-size="16" font-weight="700">View</text><text x="823" y="463" fill="#536a82" font-family="Arial, sans-serif" font-size="14">Section Box • Class Visibility</text>
+  <rect x="809" y="489" width="316" height="66" rx="7" fill="#fff" stroke="#d4dfeb"/><text x="823" y="512" fill="#203a57" font-family="Arial, sans-serif" font-size="16" font-weight="700">Collaboration</text><text x="823" y="536" fill="#536a82" font-family="Arial, sans-serif" font-size="14">Nucleus Files • Live Sync</text>
+  <text x="40" y="646" fill="#37526e" font-family="Arial, sans-serif" font-size="17" font-weight="700">1. Select storey</text>
+  <text x="222" y="646" fill="#37526e" font-family="Arial, sans-serif" font-size="17" font-weight="700">→ 2. Choose tool</text>
+  <text x="409" y="646" fill="#37526e" font-family="Arial, sans-serif" font-size="17" font-weight="700">→ 3. Edit or inspect</text>
+  <text x="641" y="646" fill="#37526e" font-family="Arial, sans-serif" font-size="17" font-weight="700">→ 4. Save IFC with Bonsai</text>
+</svg>
