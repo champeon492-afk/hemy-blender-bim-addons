@@ -10,10 +10,10 @@ permissions:
 
 jobs:
   package:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.13'
       - name: Check Python syntax
@@ -31,7 +31,7 @@ jobs:
                   assert all(name.startswith(f'{addon}/') for name in names)
                   assert archive.testzip() is None
           PY
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: blender-addons
           path: dist/*.zip
