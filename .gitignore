@@ -1,0 +1,39 @@
+# Build products and Python caches
+dist/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local Blender/IFC checks, backups, and project data
+qa/
+*.blend
+*.blend1
+*.ifc
+*.ifczip
+*.usdz
+*.log
+
+# Design prototype and generated documentation outside the add-ons
+_ds/
+vendor/
+*.dc.html
+index.html
+mockup.css
+mockup.js
+support.js
+demo-data.js
+hemy_ifc_panel/demo.json
+docs/*.docx
+docs/doc_figures/
+.thumbnail
+
+# Local environment helpers and generated setup
+scripts/backup_bonsai_ux.ps1
+scripts/install_bonsai_ux.ps1
+scripts/install_blender.py
+scripts/enable_bonsai_ux.py
+scripts/discover_bonsai_ux.py
+scripts/build_bim_ux_documentation.py
+scripts/build_bim_ux_startup.py
+scripts/validate_bim_ux_installed.py
+scripts/preview.py

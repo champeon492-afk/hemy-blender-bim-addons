@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc">
+  <title id="title">Create an IFC wall from a photo</title>
+  <desc id="desc">A photo enters the Hemy IFC panel. The user checks ordered layers and creates an IFC wall. The IFC file stores wall data, the Blender file keeps the editable photo material, and USDZ carries the textured wall to Omniverse.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f5f7fb}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2}.heading{font:700 24px Arial,sans-serif;fill:#102a43}.text{font:18px Arial,sans-serif;fill:#334155}.small{font:15px Arial,sans-serif;fill:#475569}.step{font:700 18px Arial,sans-serif;fill:#fff}.arrow{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#head)}
+    </style>
+    <marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <pattern id="brick" width="26" height="16" patternUnits="userSpaceOnUse"><rect width="26" height="16" fill="#b96e56"/><path d="M0 8H26M13 0V8M0 8V16M26 8V16" stroke="#f6ddd2" stroke-width="2"/></pattern>
+  </defs>
+  <rect class="bg" width="1080" height="390" rx="22"/>
+  <rect class="card" x="28" y="52" width="205" height="278" rx="16"/>
+  <circle cx="61" cy="86" r="20" fill="#176b8a"/><text class="step" x="55" y="93">1</text>
+  <text class="heading" x="88" y="94">Photo</text>
+  <rect x="54" y="125" width="151" height="116" rx="8" fill="url(#brick)"/>
+  <text class="small" x="50" y="276">Choose file or paste</text>
+  <text class="small" x="50" y="298">from clipboard</text>
+  <path class="arrow" d="M236 190H275"/>
+  <rect class="card" x="277" y="52" width="244" height="278" rx="16"/>
+  <circle cx="310" cy="86" r="20" fill="#176b8a"/><text class="step" x="304" y="93">2</text>
+  <text class="heading" x="337" y="94">Hemy IFC</text>
+  <text class="text" x="301" y="140">Name the wall type</text>
+  <text class="text" x="301" y="177">Order the layers</text>
+  <text class="text" x="301" y="214">Set thicknesses</text>
+  <text class="text" x="301" y="251">Confirm build-up</text>
+  <text class="small" x="301" y="300">AI suggestion: optional</text>
+  <path class="arrow" d="M523 190H561"/>
+  <rect class="card" x="563" y="52" width="228" height="278" rx="16"/>
+  <circle cx="596" cy="86" r="20" fill="#176b8a"/><text class="step" x="590" y="93">3</text>
+  <text class="heading" x="623" y="94">Create wall</text>
+  <path d="M615 251V150H748V251Z" fill="#d8d5ce" stroke="#334155" stroke-width="2"/>
+  <path d="M615 251V150H630V251Z" fill="url(#brick)"/><path d="M722 251V150H748V251Z" fill="#f5eee2"/>
+  <path d="M630 150V251M722 150V251" stroke="#334155" stroke-width="2"/>
+  <text class="small" x="595" y="300">IFC type + occurrence</text>
+  <path class="arrow" d="M793 190H830"/>
+  <rect class="card" x="832" y="52" width="222" height="278" rx="16"/>
+  <circle cx="865" cy="86" r="20" fill="#176b8a"/><text class="step" x="859" y="93">4</text>
+  <text class="heading" x="892" y="94">Save / export</text>
+  <text class="text" x="856" y="146">IFC → wall data</text>
+  <text class="text" x="856" y="193">BLEND → texture</text>
+  <text class="text" x="856" y="240">USDZ → Omniverse</text>
+  <text class="small" x="856" y="300">Keep IFC and BLEND</text>
+  <text class="small" x="28" y="365">Schematic guide — panel layout and rendered wall may vary in Blender.</text>
+</svg>

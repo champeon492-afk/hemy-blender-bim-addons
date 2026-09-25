@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="420" viewBox="0 0 1080 420" role="img" aria-labelledby="title desc">
+  <title id="title">Wall layer order and IFC alignment</title>
+  <desc id="desc">The wall baseline runs in X. Layers are ordered from exterior to interior in positive Y: exterior finish 15 millimeters, concrete core 200 millimeters, and interior gypsum 12.5 millimeters, totaling 227.5 millimeters. The photo texture is applied to layer one.</desc>
+  <defs>
+    <style>.bg{fill:#f5f7fb}.h{font:700 25px Arial,sans-serif;fill:#102a43}.t{font:19px Arial,sans-serif;fill:#334155}.white{fill:#fff}.s{font:16px Arial,sans-serif;fill:#475569}.line{stroke:#334155;stroke-width:2;fill:none}.dash{stroke:#176b8a;stroke-width:3;stroke-dasharray:9 7}.arrow{stroke:#176b8a;stroke-width:3;fill:none;marker-end:url(#head)}</style>
+    <marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#176b8a"/></marker>
+    <pattern id="brick" width="26" height="16" patternUnits="userSpaceOnUse"><rect width="26" height="16" fill="#b96e56"/><path d="M0 8H26M13 0V8M0 8V16M26 8V16" stroke="#f6ddd2" stroke-width="2"/></pattern>
+  </defs>
+  <rect class="bg" width="1080" height="420" rx="22"/>
+  <text class="h" x="38" y="47">Layer order = physical wall thickness</text>
+  <text class="s" x="39" y="78">Top view of a straight example wall. Values are editable; drawing is not to scale.</text>
+  <text class="t" x="57" y="139">Exterior</text><text class="t" x="57" y="336">Interior</text>
+  <line class="dash" x1="231" y1="112" x2="869" y2="112"/>
+  <text class="s" x="885" y="116">Wall baseline / IFC Axis</text>
+  <rect x="230" y="129" width="640" height="28" fill="url(#brick)" stroke="#334155" stroke-width="2"/>
+  <rect x="230" y="157" width="640" height="139" fill="#9ba1a6" stroke="#334155" stroke-width="2"/>
+  <rect x="230" y="296" width="640" height="25" fill="#efe8dc" stroke="#334155" stroke-width="2"/>
+  <text class="t white" x="410" y="151">1  Exterior finish · 15 mm · photo</text>
+  <text class="t white" x="427" y="232">2  Concrete core · 200 mm</text>
+  <text class="t" x="410" y="315">3  Interior gypsum · 12.5 mm</text>
+  <path class="arrow" d="M947 140V310"/>
+  <text class="t" x="910" y="343">+Y</text>
+  <text class="s" x="246" y="363">IfcMaterialLayerSetUsage: AXIS2 · POSITIVE · offset 0</text>
+  <text class="h" x="635" y="397">Total: 227.5 mm</text>
+</svg>

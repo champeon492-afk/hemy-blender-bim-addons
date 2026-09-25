@@ -1,0 +1,37 @@
+name: Build Blender add-ons
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Check Python syntax
+        run: python -m compileall -q hemy_ifc_panel bonsai_ux_host scripts/package.py
+      - name: Build ZIPs
+        run: python scripts/package.py
+      - name: Verify package contents
+        run: |
+          python - <<'PY'
+          from zipfile import ZipFile
+          for addon in ('hemy_ifc_panel', 'bonsai_ux_host'):
+              with ZipFile(f'dist/{addon}.zip') as archive:
+                  names = archive.namelist()
+                  assert f'{addon}/__init__.py' in names
+                  assert all(name.startswith(f'{addon}/') for name in names)
+                  assert archive.testzip() is None
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blender-addons
+          path: dist/*.zip
