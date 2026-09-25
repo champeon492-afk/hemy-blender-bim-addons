@@ -1,0 +1,13 @@
+schema_version = "1.0.0"
+id = "workplane_toolkit"
+version = "1.0.0"
+name = "Workplane Toolkit"
+tagline = "Set a modeling plane from faces, the cursor, view, or world axes"
+maintainer = "Workplane Toolkit contributors"
+type = "add-on"
+tags = ["3D View", "Modeling"]
+blender_version_min = "4.2.0"
+license = ["SPDX:GPL-3.0-or-later"]
+
+[build]
+paths_exclude_pattern = ["__pycache__/", "*.pyc", ".git/"]
