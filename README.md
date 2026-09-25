@@ -50,6 +50,142 @@ Run `--dry-run` after the final `--` to check the ZIPs and prerequisites without
 
 The BIM sidebar groups controls under **Context, Active Tool, Selection, View, Collaboration**. Its task switcher offers **Select, Create, Grid, Dimension, Workplane, Section, Inspect**. The viewport header exposes the storey, workplane, plan/3D, and Nucleus status controls. The handover lists the exact UI locations and the actions that were tested.
 
+## Add-on usage guide
+
+These workflows follow the supplied *Blender and Bonsai Illustrated Addon Guide* for the installed versions listed above. The diagrams are instructional illustrations, not screenshots. Open an IFC in Bonsai before using tools that edit IFC elements. With the pointer over the 3D Viewport, press **N** for the sidebar or **T** for the left toolbar. Work in Object Mode unless a step says otherwise.
+
+### Bonsai 0.8.5 — IFC foundation
+
+![Create or open an IFC project, place typed IFC elements, then save the IFC model](docs/guide/bonsai.png)
+
+1. Open an IFC project in Bonsai or create one from **Project Overview** with the intended schema and units.
+2. Choose a storey, select a Wall, Slab, or Column tool and an IFC type, then place the element.
+3. Check the element's IFC class, type, and spatial container. **Save the IFC through Bonsai**; save `.blend` separately for Blender scene settings.
+
+A Blender mesh by itself is not an IFC product. Bonsai is installed separately and is not one of the 11 custom packages in this repository.
+
+### Workplane Toolkit 1.0.0 — model on a chosen plane
+
+![Set a workplane from a face and use its local axes for constrained transforms](docs/guide/workplane.png)
+
+1. In **N → Workplane**, choose **From Selected Face** in mesh Edit Mode, or use **3D Cursor**, **Current View**, or XY/XZ/YZ.
+2. Use **Look at Workplane** to face it. With Cursor transform orientation, use **G, Shift+Z** to move within the plane, **G, Z** to move normal to it, and **R, Z** to rotate within it.
+3. Click **Apply** after changing Origin or Rotation. Use **Restore Previous Setup** when finished.
+
+The workplane grid is a visual aid; its spacing does not turn on snapping. Setting a workplane does not move existing geometry.
+
+### Bonsai Dynamic Dimension 0.3.2 — reference measurement
+
+![Pick two IFC references in top plan, place a dimension line, and choose which element moves on edit](docs/guide/dynamic-dimension.png)
+
+1. Open an IFC project in **top orthographic plan**. Choose **Aligned Dimension** in the Bonsai sidebar or the Dynamic Dimension toolbar tool.
+2. Pick two parallel wall envelope faces or two IFC points, then click away from the elements to place the dimension line.
+3. To change placement, select a referenced element and use **Edit Value / Move** in the original panel. Enter the new distance and confirm which element will move.
+
+Placing a reference dimension alone does not move geometry. An explicit edit can move IFC placement; save the IFC for that change and `.blend` for the dimension records. The dimension does not impose a permanent constraint.
+
+### Bonsai Driving Plan Dimensions 0.1.1 — IFC-stored spacing
+
+![Edit one grid-chain spacing and see adjacent measured distances update](docs/guide/driving-plan-dimensions.png)
+
+1. In **N → Plan Dimensions**, choose a Building storey and enter top plan. Select two parallel IFC walls; select the intended movable wall last to make it **End B**. For grids, select individual straight `IfcGridAxis` objects.
+2. Choose **Clear faces** or **Body centres**, set the line offset, and click **Dimension 2 Selected**. Use **Chain Selected Grids** for three or more parallel axes.
+3. Edit the displayed value, choose **End A** or **End B**, confirm, inspect neighboring geometry and dimensions, then save the IFC through Bonsai.
+
+Definitions are stored in the IFC and reappear when it is reopened. Moving one grid axis can change adjacent measured gaps; a chain does not lock all spacings. The labels are viewport overlays, not rendered drawing annotations.
+
+### Bonsai IFC Grid Toolbar 1.1.0 — lay out grid axes
+
+![Create two IFC grid-axis families and stretch one end with its orange handle](docs/guide/ifc-grid.png)
+
+1. With an IFC project and default spatial container open, choose **IFC Grid → New Grid** in the left toolbar or **N → IFC Grid**. Set row and column counts and spacing, then click **Create Grid**.
+2. Use **More settings** for unequal gaps, labels, rotation, or elevation. Use **Draw Line**, **Offset Axis**, or **Rename Axis** to refine the layout.
+3. Select a straight axis and drag its orange endpoint ring to change only one end. Save the IFC after editing.
+
+Turn on **Show Gizmos** and **Show Overlays** to see handles. A new grid needs both axis families; curved axes cannot be stretched with this handle.
+
+### Bonsai Nucleus Files 1.0.0 — open and save native projects
+
+![Download a native IFC or Blender project to a local working copy, then explicitly save it to Nucleus](docs/guide/nucleus-files.png)
+
+1. In add-on preferences, enter your Nucleus home folder and configure the NVIDIA SDK Python and SDK folder. You can set `BONSAI_NUCLEUS_PYTHON` and `BONSAI_NUCLEUS_SDK`, then use **Detect Runtime**. In **N → Nucleus**, choose **Connect / Refresh** and complete browser sign-in if prompted.
+2. Browse to an IFC, IFCZIP, or `.blend` project and use **Open from Nucleus**. Save current work before confirming a project switch.
+3. Choose **IFC project** or **Blender project**, then **Save As** for a new remote file or **Save** for the associated one. Wait for **Saved to Nucleus**; retain the local copy if a transfer fails.
+
+The repository copy has no preconfigured server or SDK path. Ordinary **Ctrl+S** saves locally; it does not upload to Nucleus. A remote `.blend` save does not also update a separate remote IFC file.
+
+### Bonsai Nucleus Live Sync 0.1.0 — outgoing review session
+
+![Send supported Blender scene changes through a receiver to a USD live session](docs/guide/nucleus-live-sync.png)
+
+1. Start your configured Nucleus receiver and prepare the intended USD stage and live session.
+2. In **N → Bonsai Sync**, enter the stage, receiver port and token, and optionally choose a Sync collection. Click **Start Live Sync** and verify a small edit reaches the receiving scene.
+3. Use **Resync All** if necessary and **Stop Sync** when finished. Save the IFC or `.blend` separately.
+
+Enabling the add-on does not start a connection. Sync sends supported scene data outward for review; it is not two-way IFC authoring or a native project save.
+
+### Bonsai 3D Section Box 1.1.0 — inspect a region
+
+![Select the inspection area and fit a clipping box around it](docs/guide/section-box.png)
+
+1. In Object Mode, select the elements that define the area. Clear other clipping planes if they are active.
+2. Use **BIM → View → Fit Section Box to Selection**, the Section panel, or **Alt+Shift+B**. Adjust Center, Size or Padding in **N → Section**.
+3. Use **Frame Section Box** to refocus, then **Clear Section Box** to restore the previous view and clipping setup.
+
+The box affects viewport display only; it does not cut or delete IFC geometry. Storey View Range pauses while the box is active.
+
+### Bonsai Slab Wall and Column Sizes 1.3.0 — edit type dimensions
+
+![Changing type A updates its occurrences while a distinct type B keeps its own size](docs/guide/type-sizes.png)
+
+1. Choose the Bonsai Slab, Wall or Column tool and confirm the selected **IFC type**.
+2. Set **Thickness** for a single-layer slab or wall type. For a rectangular column profile, set width and depth; for a circular one, set diameter.
+3. Inspect all occurrences of that type and save the IFC. Assign a separate type first if only one element should differ.
+
+Use Bonsai's Material Layers editor for multilayer wall or slab assemblies and its profile editor for other profile shapes. Type edits can regenerate multiple elements.
+
+### Bonsai Storey Toolbar 1.2.0 — work by floor
+
+![Choose a storey, clip a vertical range, and switch between plan and 3D views](docs/guide/storey-toolbar.png)
+
+1. In the viewport tool header or **N → IFC Storeys**, choose **Select Storey**. The selected floor becomes the default spatial container and workplane.
+2. Work in **Plan Locked** to pan, zoom and edit without orbiting. Enable **View Range** for a level-to-level slice or set custom elevations.
+3. Click **3D View** to orbit the same slice, then **Plan Locked** to return. Save `.blend` to retain view-range settings.
+
+At the top storey, **Height** supplies the upper range limit. View Range pauses in Edit Mode or when Section Box or other clipping planes are active; it does not alter IFC geometry.
+
+### Hemy 360 IFC Element Properties 0.4.2 — inspect or create a wall type
+
+![Inspect IFC properties or review exterior-to-interior layers before creating a photo-finished wall](docs/guide/hemy-ifc-panel.png)
+
+1. Select an IFC element and open **N → Hemy IFC** to inspect attributes, property sets, quantities, materials and type. Search, copy the GlobalId, export JSON, or show and hide an IFC class.
+2. For a photo wall, open an **IFC4** project and **Create Wall Type from Photo**. Choose or paste a photo, then enter the wall type and **reviewed exterior-to-interior layers**, thicknesses and materials.
+3. Confirm the build-up, click **Create IFC Wall Type and Wall**, inspect the result, then save **both IFC and `.blend`**. The photo material needs the Blender file; the IFC retains the type and material layer data.
+
+The photo only describes the visible finish; it cannot reveal hidden construction layers. **Suggest with AI** is optional and sends the image to the configured OpenAI API when invoked. See the [full photo-wall guide](docs/Hemy_IFC_User_Guide.md).
+
+### Bonsai UX Host 0.2.0 — one entry point for the tools
+
+![Set BIM context, choose a task, then inspect or share through the common sidebar](docs/guide/bim-ux-host.png)
+
+1. Open **N → BIM**. In **Context**, check project, building, storey and workplane, then choose Plan or 3D.
+2. In **Active Tool**, choose Create, Grid, Dimension, Workplane, Section or Inspect. **Reference Dimension** opens Dynamic Dimension; **Driving Dimension** opens Plan Dimensions.
+3. Use **Selection** for IFC identity and type, **View** for clipping and class visibility, and **Collaboration** for Nucleus files or sync.
+
+The UX Host calls the other enabled add-ons; it does not replace them. If a control is unavailable, check the selected object, view and mode, then verify that its companion add-on is enabled. **BIM Integration Diagnostics** is available in the UX Host preferences.
+
+### Choose the right save or sharing action
+
+| Goal | Action |
+| --- | --- |
+| Preserve BIM geometry, types and property edits | Save the **IFC** through Bonsai. |
+| Preserve Blender scene and custom tool settings | Save the **`.blend`** file. |
+| Upload a native project to Nucleus | Use **Nucleus Files → Save** or **Save As** and wait for confirmation. |
+| Send scene updates for Omniverse review | Start **Nucleus Live Sync** with its receiver; save the native project separately. |
+| Share a visual scene or image | Use Blender's bundled **glTF 2.0 exporter** or **Cycles** render engine. These are not custom packages in this repository. |
+
+Blender's bundled **Pose Library** handles armature pose assets and is generally unrelated to IFC authoring. If a tool seems unavailable, check that an IFC project and the right element are loaded, confirm Object versus Edit Mode, and turn on overlays and gizmos for workplane grids or grid handles.
+
 ## BIM workspaces
 
 `scripts/build_bim_ux_startup.py` creates a **model-free** `.blend` with **BIM Model**, **BIM Plan**, and **BIM Review** workspaces under `qa/bim_ux_startup.blend`. Run it against Blender's factory startup file, then inspect that output before choosing whether to use it as a startup file:
