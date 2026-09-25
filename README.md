@@ -30,15 +30,23 @@ The source directories hold the custom add-ons captured with the handover. Machi
 
 ## Build and install
 
-Run from the repository root:
+Install and enable official Bonsai first. Save your work and close other Blender windows, since the installer updates add-on files and Blender preferences. From the repository root, build the packages and run the bulk installer with Blender 5.2:
 
 ```powershell
 python scripts/package.py
+$blender = 'C:\Program Files\Blender Foundation\Blender 5.2\blender.exe'
+& $blender --background --python-exit-code 1 --python scripts/install_all.py
 ```
 
-This creates **one ZIP per add-on** in `dist/`. GitHub Actions builds and checks the same 11 ZIPs on every push and pull request; download the `blender-addons` artifact from a successful run. The artifact is a build output, not a published GitHub Release.
+`scripts/package.py` creates **one ZIP per add-on** in `dist/`. `scripts/install_all.py` validates all 11 ZIPs before changing Blender, installs both extension and legacy formats, enables the companion add-ons before `bonsai_ux_host`, and saves Blender preferences. It updates existing copies of these add-ons. It does not install official Bonsai, open an IFC model, or configure Nucleus access.
 
-Install and enable official Bonsai separately. In Blender 5.2, use **Edit → Preferences → Get Extensions → Install from Disk** for the two extension ZIPs; install the other ZIPs as legacy add-ons from the Add-ons preferences. Enable the companion add-ons first and `bonsai_ux_host` last. The UX Host exposes controls from the enabled add-ons; its buttons do not replace their implementations. Nucleus file access and live sync additionally need your own Nucleus service and connection settings.
+GitHub Actions builds and checks the same 11 ZIPs on every push and pull request. If you download the `blender-addons` artifact from a successful run, **extract the artifact ZIP first** and point the installer at the folder containing the 11 individual ZIPs:
+
+```powershell
+& $blender --background --python-exit-code 1 --python scripts/install_all.py -- --source 'C:\path\to\extracted\blender-addons'
+```
+
+Run `--dry-run` after the final `--` to check the ZIPs and prerequisites without installing. Use `--install-only` to place the packages before Bonsai is enabled; you must then enable Bonsai and these add-ons in Blender Preferences. The `blender-addons` artifact is a build output, not a published GitHub Release. You can still install individual ZIPs through **Edit → Preferences → Get Extensions → Install from Disk**. The UX Host exposes controls from enabled companion add-ons; its buttons do not replace their implementations. Nucleus file access and live sync additionally need your own Nucleus service and connection settings.
 
 The BIM sidebar groups controls under **Context, Active Tool, Selection, View, Collaboration**. Its task switcher offers **Select, Create, Grid, Dimension, Workplane, Section, Inspect**. The viewport header exposes the storey, workplane, plan/3D, and Nucleus status controls. The handover lists the exact UI locations and the actions that were tested.
 

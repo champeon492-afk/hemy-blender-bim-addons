@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.13'
       - name: Check Python syntax
-        run: python -m compileall -q hemy_ifc_panel bonsai_ux_host bonsai_section_box bonsai_plan_dimensions bonsai_dynamic_dimension bonsai_grid_toolbar bonsai_nucleus_files bonsai_nucleus_sync bonsai_slab_thickness bonsai_storey_toolbar workplane_toolkit scripts/package.py scripts/build_bim_ux_startup.py
+        run: python -m compileall -q hemy_ifc_panel bonsai_ux_host bonsai_section_box bonsai_plan_dimensions bonsai_dynamic_dimension bonsai_grid_toolbar bonsai_nucleus_files bonsai_nucleus_sync bonsai_slab_thickness bonsai_storey_toolbar workplane_toolkit scripts/package.py scripts/install_all.py scripts/build_bim_ux_startup.py
       - name: Build ZIPs
         run: python scripts/package.py
       - name: Verify package contents
